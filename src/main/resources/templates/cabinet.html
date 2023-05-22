@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="navigation_panel.css">
+    <link rel="stylesheet" href="cabinet.css">
+</head>
+<body>
+<div class="header">
+    <!--    навигационная панель-->
+    <nav class="nav_container">
+        <div class="nav">
+            <div class="logo">
+                <a class="logo" href="index.html">
+                    <p>
+                        <span>F</span>
+                        <span>O</span>
+                        <span>X</span>
+                        <span>Y</span>
+                    </p>
+                    <p class="second_str">
+                        <span>R</span>
+                        <span>E</span>
+                        <span>P</span>
+                        <span>O</span>
+                    </p>
+                </a>
+            </div>
+
+            <div class="menu">
+                <a href="new.html"><div class="menu_elem first">ВСЕ СТАТЬИ</div></a>
+                <a href="popular.html"><div class="menu_elem second">ПОПУЛЯРНОЕ</div></a>
+                <a href="about.html"><div class="menu_elem three">О ПЛОЩАДКЕ</div></a>
+                <div class="profile dropdown">
+                    <div class="menu_elem"> <img class="menu_elem" src="images/icon-profile.png">
+                        <div class="dropdown-content">
+                            <a href="#openModal">Войти</a>
+                            <a href="#openModal-signup">Зарегистрироваться</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container-profile">
+    <div class="upper-container">
+        <div class="profile-logo"><img src="images/profle.png"></div>
+        <div class="profile-info">
+            <p><span class="user-login">login: </span>users_login<span></span></p>
+            <p><span class="user-about">о себе: </span>users_about<span></span></p>
+        </div>
+        <div class="profile-buttons">
+            <button class="create-article">Создать статью</button><br>
+            <button class="become-writer">Стать писателем</button>
+        </div>
+    </div>
+
+    <div class="contacts">
+        <p class="contacts-label">Контакты:</p>
+        <p class="contact-tg"><span class="tg-label">tg: </span><span>telegram</span></p>
+        <p class="contact-mail"><span class="mail-label">email: </span><span>nightfox@gmail.com</span></p>
+    </div>
+
+    <div class="menu-bar">
+        <a><div class="favourites"><button class="menu-buts active" onclick="show(0)">Избранное</button></div></a>
+        <a><div class="publications"><button class="menu-buts" onclick="show(1)">Публикации</button></div></a>
+        <a><div class="request"><button class="menu-buts" onclick="show(2)">Запрос стать писателем</button></div></a>
+    </div>
+</div>
+
+<div class="container">
+<!--   избранное-->
+    <div id="favourites-posts" class="punct f-posts">избранное</div>
+<!--    публикации-->
+    <div id="published-posts" class="punct pub-posts">публикации</div>
+<!--    запросы-->
+    <div id="requested" class="punct reqs">запросы</div>
+
+
+</div>
+
+<!-- модальное окно для входа-->
+<div id="openModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#close" title="Close" class="close">×</a>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <p class="modal-title">Авторизация</p>
+                    <form method="POST" class="form" action="">
+                        <p><input class="intext login" type="text" placeholder="Login"  required></p>
+                        <p><input class="intext pass" type="password" placeholder="Password" required></p>
+                        <p class="into"><button type="submit">Login</button></p>
+                        <p class="or">---------------  <span class="sp">or</span>  ---------------</p>
+                        <a href="#openModal-signup"><p class="but">Create new account</p></a>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- модальное окно для регистрации-->
+<div id="openModal-signup" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#close" title="Close" class="close">×</a>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <p class="modal-title">Регистрация</p>
+                    <form method="POST" class="form" action="">
+                        <p><input class="intext login" type="text" placeholder="Login"  required></p>
+                        <p><input class="intext pass" type="password" placeholder="Password" required></p>
+                        <p><input class="intext email" type="text" placeholder="Email" required></p>
+                        <p><input class="intext tg" type="text" placeholder="Tg"></p>
+                        <p><input class="intext about" type="text" placeholder="About yourself" size="512"></p>
+                        <p class="into"><button type="submit">Create new account</button></p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer_container">
+        <div class="footer-col"><span>Энциклопедия © 2023</span></div>
+        <div class="footer-col">
+            <div class="social-bar-wrap">
+                <a title="Facebook" href="https://vk.com/ivanhoe_kn" target="_blank"><img src="images/facebook.png"></a>
+                <a title="VK" href="https://vk.com/ivanhoe_kn" target="_blank"><img src="images/vk.png"></a>
+                <a title="Telegram" href=https://vk.com/ivanhoe_kn" target="_blank"><img src="images/telegram.png"></a>
+                <a title="Instagram" href="https://vk.com/ivanhoe_kn" target="_blank"><img src="images/instagram.png"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let menuIndex = 1;
+    show(menuIndex);
+    function plusSlides(n) {
+        show(menuIndex += n);
+    }
+    function show(n) {
+        let i;
+        const slides = document.getElementsByClassName("punct");
+        if (n > slides.length) {menuIndex = 1}
+        if (n < 1) {menuIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[menuIndex-1].style.display = "initial";
+    }
+</script>
+</body>
+</html>

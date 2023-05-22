@@ -1,0 +1,207 @@
+/*для модального окна*/
+.modal {
+    position: fixed; /* фиксированное положение */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    opacity: 0; /* по умолчанию модальное окно прозрачно */
+    -webkit-transition: opacity 200ms ease-in;
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in; /* анимация перехода */
+    pointer-events: none; /* элемент невидим для событий мыши */
+    margin: 0 auto;
+    padding: 0;
+    width: 35vw;
+    overflow: auto;
+}
+.modal::-webkit-scrollbar {
+    display: none;
+}
+
+/* при отображении модального окно */
+.modal:target {
+    opacity: 1; /* делаем окно видимым */
+    pointer-events: auto; /* элемент видим для событий мыши */
+}
+/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 115px 30px;
+}
+/* свойства для блока, содержащего контент модального окна */
+.modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #ffffff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    outline: 0;
+    border-radius: 20px;
+    border: 2px solid rgb(145, 144, 144);
+    box-shadow: 4px 4px 1px 1px rgb(145, 144, 144);
+
+}
+/* свойства для заголовка модального окна */
+.modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: right;
+    padding: 15px;
+}
+/* свойства для кнопки "Закрыть" */
+.close {
+    float: right;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    text-decoration: none;
+}
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus, .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+}
+/* свойства для блока, содержащего основное содержимое окна */
+.modal-body {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 30px;
+}
+/* //для модального окна*/
+
+/* для формы*/
+.form {
+    padding: 30px;
+    color: black;
+}
+.form-container .modal-title{
+    text-align: center;
+    font-size: 26px;
+    margin: 0;
+    font-weight: bold;
+    font-family: "Century Gothic", sans-serif;
+}
+.form button {
+    width: 250px;
+    height: 52px;
+    background-color: #9898ff;
+    border-radius: 30px ;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #4b4b4b;
+    border: none;
+    font-family: "Century Gothic", sans-serif;
+    font-size: 18px;
+}
+.but {
+    width: 250px;
+    height: 38px;
+    background-color: #4747ff;
+    border-radius: 30px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #4b4b4b;
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 14px;
+    font-family: "Century Gothic", sans-serif;
+}
+.or {
+    font-family: Broadway, sans-serif;
+    text-align: center;
+}
+.sp {
+    font-family: "Century Gothic", sans-serif;
+}
+.form .into {
+    width: 350px;
+    height: 46px;
+    color: #ffffff;
+    margin: 20px auto;
+    text-align: center;
+}
+.form p .intext {
+    width: 300px;
+    height: 46px;
+    border: none;
+    padding: 0 10px 0 40px;
+    margin: 0 auto 10px auto;
+    font-family: "Century Gothic", sans-serif;
+}
+.form p {
+    text-align: center;
+}
+.pass {
+    background: url(../images/password.png) no-repeat 6px 10px;
+    background-size: auto 50%;
+    background-color: #e8e8e8;
+}
+.login {
+    background: url(../images/username.png) no-repeat 6px 10px;
+    background-size: auto 50%;
+    background-color: #e8e8e8;
+}
+.form a p{
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*для регистрации*/
+.form p textarea {
+    /*height: 200px;*/
+    resize: none;
+}
+.intext {
+    background-color: #e8e8e8;
+}
+.email {
+    background: url(../images/email.png) no-repeat 6px 10px;
+    background-size: auto 50%;
+    background-color: #e8e8e8;
+}
+.tg {
+    background: url(../images/tg.png) no-repeat 6px 10px;
+    background-size: auto 50%;
+    background-color: #e8e8e8;
+}
+.about {
+    background: url(../images/about.png) no-repeat 6px 10px;
+    background-size: auto 50%;
+    background-color: #e8e8e8;
+}
+/*#openModal-signup .modal-dialog {*/
+/*    margin-top: 70px;*/
+/*}*/
+#openModal-signup .modal-body {
+    padding: 0 30px;
+}
+#openModal-signup form button{
+    background-color: #4747ff;
+}

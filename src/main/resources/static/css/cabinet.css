@@ -1,0 +1,126 @@
+/*содержимое сайта*/
+.container-profile {
+    width: 70vw;
+    height: max-content;
+    background-color: white;
+    margin: 10px auto;
+    box-shadow: 6px -2px 14px -6px rgba(14, 36, 52, 0.37);
+    font-family: Arial, sans-serif;
+}
+.container {
+    width: 70vw;
+    height: max-content;
+    background-color: white;
+    margin: 10px auto;
+    box-shadow: 6px -2px 14px -6px rgba(14, 36, 52, 0.37);
+}
+/*upper-container*/
+.upper-container {
+    height: 110px;
+    position: relative;
+}
+.container-profile div {
+    vertical-align: middle;
+}
+.profile-logo, .profile-info, .profile-buttons {
+    display: inline-block;
+    padding: 0 10px 10px 10px;
+    margin: 10px auto;
+}
+.profile-logo {
+    width: 100px;
+}
+.profile-info {
+    width: 400px;
+}
+.user-login, .user-about, .tg-label, .mail-label {
+    color: #888888;
+}
+.profile-logo img {
+    width: 60px;
+    display: block;
+    margin: 0 auto;
+}
+.profile-info p:first-child {
+    font-size: 28px;
+}
+.profile-info p{
+    font-size: 20px;
+    margin: 8px 0;
+}
+.profile-buttons {
+    float: right;
+    margin-right: 60px;
+}
+.profile-buttons button {
+    padding: 5px;
+    width: 130px;
+    margin: 5px auto;
+    border: none;
+    background-color: #86bbc5;
+    color: white;
+    font-family: Arial, sans-serif;
+    box-shadow: 4px 3px 0px 0px #2f717e;
+}
+.profile-buttons p {
+    text-align: center;
+    vertical-align: center;
+}
+.become-writer {
+    vertical-align: center;
+}
+/*contacts*/
+
+.contacts {
+}
+.contacts p {
+    margin: 8px 0 8px 30px;
+}
+.contacts-label {
+    font-size: larger;
+    margin-bottom: 8px;
+}
+
+/*menu-bar*/
+.menu-bar button {
+    background-color: white;
+    border: none;
+    color: #ababab;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin: 14px 15px 10px 0;
+}
+.favourites, .publications, .request {
+    display: inline-block;
+    text-align: center;
+}
+.menu-bar {
+    margin: 10px 0 0 24px;
+}
+.favourites p {
+    /*text-decoration: underline #2790c9;*/
+}
+.publications {
+
+}
+.request {
+}
+/*.favourites:hover {*/
+/*    border-bottom: 2px solid #088bb4;*/
+/*}*/
+
+.active {
+    text-decoration: underline;
+    text-decoration-color: #54c7d7;
+    text-underline-offset: 11px;
+    text-decoration-thickness: 4px;
+}
+.pub-posts, .reqs, .f-posts {
+    display: none;
+}
+.pub-posts:target, .reqs:target, .f-posts:target {
+    display: initial;
+}
+.punct {
+    display: none;
+}

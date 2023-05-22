@@ -1,0 +1,95 @@
+/*содержимое сайта*/
+.container {
+    display: flex;
+    justify-content: space-around;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+.first {
+    color: #2fa2da;
+    font-weight: bold;
+}
+/*для статей*/
+.posts-list {
+    width: 50vw;
+    color: black;
+    padding: 10px;
+    margin-bottom: 30px;
+    margin-right: 0;
+    margin-left: 0;
+}
+.post-image img {
+    width: 12vw;
+}
+.post-image {
+    text-align: center;
+    margin-bottom: 8px;
+}
+.post-title {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 2px 0;
+}
+.post {
+    background-color: white;
+    padding: 15px;
+    text-align: justify;
+    width: 44vw;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    box-shadow: 4px 4px 1px 1px rgb(145, 144, 144);
+}
+.post-content {
+    padding-left: 15px;
+}
+.post-info a{
+    color: #2790c9;
+    padding-right: 20px;
+}
+.post-info {
+    color: #696969;
+    text-align: right;
+}
+.post-footer {
+    margin: 20px 0;
+}
+/*для боковой панели*/
+.aside {
+    width: 30vw;
+    color: black;
+    padding: 10px;
+}
+.widget {
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 20px;
+    box-shadow: 4px 4px 1px 1px rgb(145, 144, 144);
+}
+.widget-title {
+    text-align: center;
+    font-size: 20px;
+    padding: 5px;
+    margin: 10px 20px 20px 20px;
+    border: 2px solid #99d0d0;
+    box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .2);
+}
+.widget-category-list {
+    padding-left: 60px;
+    margin-bottom: 10px;
+    width: 13vw;
+}
+.widget-category-list li {
+    line-height: 2;
+    border-bottom: 1px solid #99d0d0;
+}
+li {
+    list-style-type: none; /* Убираем маркеры у списка */
+}
+li:before {
+    content: "➢  "; /* Добавляем в качестве маркера символ */
+}
+li:hover {
+    text-decoration: underline;
+}

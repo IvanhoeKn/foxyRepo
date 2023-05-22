@@ -1,0 +1,37 @@
+package ru.foxyrepo.website.dao;
+
+import ru.foxyrepo.website.model.Article;
+
+import java.util.List;
+
+public class ArticleDao extends DAO<Article> {
+    public ArticleDao() {
+        super();
+        setModelClass(Article.class);
+    }
+
+    public List<Article> getLastAdded() {
+        List<Article> lastAdded = openCurrentSession()
+                .createNativeQuery("SELECT * FROM article ORDER BY creation_date DESC limit(5)", Article.class)
+                .list();
+        closeCurrentSession();
+        return lastAdded;
+    }
+
+    public List<Article> getBestFavorites() {
+        List<Article> bestFavorites = openCurrentSession()
+                .createNativeQuery("SELECT * FROM article ORDER BY like_counter DESC limit(5)", Article.class)
+                .list();
+        closeCurrentSession();
+        return bestFavorites;
+    }
+
+    public List<Article> getArticlesWithCategory(Long idCategory) {
+        List<Article> bestFavorites = openCurrentSession()
+                .createNativeQuery("SELECT * FROM article WHERE id_class = :idCategory", Article.class)
+                .setParameter("idCategory", idCategory)
+                .list();
+        closeCurrentSession();
+        return bestFavorites;
+    }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все статьи</title>
+    <link rel="stylesheet" th:href="@{css/navigation_panel.css}">
+    <link rel="stylesheet" th:href="@{css/new.css}">
+    <link rel="stylesheet" th:href="@{css/login.css}">
+</head>
+<body>
+<div class="header">
+    <!--    навигационная панель-->
+    <nav class="nav_container">
+        <div class="nav">
+            <div class="logo">
+                <a class="logo" th:href="@{index}">
+                    <p>
+                        <span>F</span>
+                        <span>O</span>
+                        <span>X</span>
+                        <span>Y</span>
+                    </p>
+                    <p class="second_str">
+                        <span>R</span>
+                        <span>E</span>
+                        <span>P</span>
+                        <span>O</span>
+                    </p>
+                </a>
+            </div>
+
+            <div class="menu">
+                <a th:href="@{all}"><div class="menu_elem first">ВСЕ СТАТЬИ</div></a>
+                <a th:href="@{popular}"><div class="menu_elem second">ПОПУЛЯРНОЕ</div></a>
+                <a th:href="@{about}"><div class="menu_elem three">О ПЛОЩАДКЕ</div></a>
+                <div class="profile dropdown">
+                    <div class="menu_elem"> <img class="menu_elem" th:src="@{images/icon-profile.png}">
+                        <div class="dropdown-content">
+                            <a href="#openModal">Войти</a>
+                            <a href="#openModal-signup">Зарегистрироваться</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    <!--    для статей-->
+    <div class="posts-list">
+        <a th:each="article : ${articles}" th:href="@{articles(id=${article.getIdArticle()})}">
+            <div class="post">
+                <div class="post-image"><img th:src="@{${article.getPicture()}}"></div>
+                <div class="post-content">
+                    <p class="post-title" th:text="${article.getTitle()}"></p>
+                    <div class="summary">
+                        <p th:text="${article.getSummary()}"></p>
+                    </div>
+                    <div class="post-footer">
+                        <p class="post-info"><a th:href="@{all(filter=${article.getIdClass()})}">Категория: <span th:text="${selectCategory[__${article.getIdClass()}__L]}"></span></a> Дата: <span th:text="${#dates.format(article.getCreationDate(), 'dd-MMM-yyyy')}"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <!--    боковая панель-->
+    <div class="aside">
+        <!--        категории-->
+        <div class="widget">
+            <p class="widget-title">Категории</p>
+            <ul class="widget-category-list" th:each="category : ${categories}">
+                <li><a th:href="@{all(filter=${category.getIdCategory()})}" th:text="${category.nameCategory}"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- модальное окно для входа-->
+<div id="openModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#close" title="Close" class="close">×</a>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <p class="modal-title">Авторизация</p>
+                    <form method="POST" class="form" action="">
+                        <p><input class="intext login" type="text" placeholder="Login"  required></p>
+                        <p><input class="intext pass" type="password" placeholder="Password" required></p>
+                        <p class="into"><button type="submit">Login</button></p>
+                        <p class="or">---------------  <span class="sp">or</span>  ---------------</p>
+                        <a  href="#openModal-signup"><p class="but">Create new account</p></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer_container">
+        <div class="footer-col"><span>Энциклопедия © 2023</span></div>
+        <div class="footer-col">
+            <div class="social-bar-wrap">
+                <a title="Facebook" href="https://vk.com/ivanhoe_kn" target="_blank"><img src="images/facebook.png"></a>
+                <a title="VK" href="https://vk.com/ivanhoe_kn" target="_blank"><img src="images/vk.png"></a>
+                <a title="Telegram" href="https://vk.com/ivanhoe_kn" target="_blank"><img src="images/telegram.png"></a>
+                <a title="Instagram" href="https://vk.com/ivanhoe_kn" target="_blank"><img src="images/instagram.png"></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

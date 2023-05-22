@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>About FoxyRepo</title>
+    <link rel="stylesheet" th:href="@{css/navigation_panel.css}">
+    <link rel="stylesheet" th:href="@{css/about.css}">
+    <link rel="stylesheet" th:href="@{css/login.css}">
+</head>
+<body>
+<div class="header">
+    <!--    навигационная панель-->
+    <nav class="nav_container">
+        <div class="nav">
+            <div class="logo">
+                <a class="logo" th:href="@{index}">
+                    <p>
+                        <span>F</span>
+                        <span>O</span>
+                        <span>X</span>
+                        <span>Y</span>
+                    </p>
+                    <p class="second_str">
+                        <span>R</span>
+                        <span>E</span>
+                        <span>P</span>
+                        <span>O</span>
+                    </p>
+                </a>
+            </div>
+
+            <div class="menu">
+                <a th:href="@{all}"><div class="menu_elem first">ВСЕ СТАТЬИ</div></a>
+                <a th:href="@{popular}"><div class="menu_elem second">ПОПУЛЯРНОЕ</div></a>
+                <a th:href="@{about}"><div class="menu_elem three">О ПЛОЩАДКЕ</div></a>
+                <div class="profile dropdown">
+                    <div class="menu_elem"> <img class="menu_elem" th:src="@{images/icon-profile.png}">
+                        <div class="dropdown-content">
+                            <a href="#openModal">Войти</a>
+                            <a href="#openModal-signup">Зарегистрироваться</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    <div class="about_repo">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut enim esse illo in laboriosam nam numquam placeat temporibus. Deserunt esse et fugiat, iste mollitia neque provident soluta velit voluptate voluptatem.</p>
+    </div>
+</div>
+
+<!-- модальное окно для входа-->
+<div id="openModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#close" title="Close" class="close">×</a>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <p class="modal-title">Авторизация</p>
+                    <form method="POST" class="form" action="">
+                        <p><input class="intext login" type="text" placeholder="Login"  required></p>
+                        <p><input class="intext pass" type="password" placeholder="Password" required></p>
+                        <p class="into"><button type="submit">Login</button></p>
+                        <p class="or">---------------  <span class="sp">or</span>  ---------------</p>
+                        <a href="#openModal-signup"><p class="but">Create new account</p></a>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- модальное окно для регистрации-->
+<div id="openModal-signup" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#close" title="Close" class="close">×</a>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <p class="modal-title">Регистрация</p>
+                    <form method="POST" class="form" action="">
+                        <p><input class="intext login" type="text" placeholder="Login"  required></p>
+                        <p><input class="intext pass" type="password" placeholder="Password" required></p>
+                        <p class="into"><button type="submit">Login</button></p>
+                        <p class="or">---------------  <span class="sp">or</span>  ---------------</p>
+                        <a href="#openModal-signup"><p class="but">Create new account</p></a>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer_container">
+        <div class="footer-col"><span>Энциклопедия © 2023</span></div>
+        <div class="footer-col">
+            <div class="social-bar-wrap">
+                <a title="Facebook" href="https://vk.com/ivanhoe_kn" target="_blank"><img th:src="@{images/facebook.png}"></a>
+                <a title="VK" href="https://vk.com/ivanhoe_kn" target="_blank"><img th:src="@{images/vk.png}"></a>
+                <a title="Telegram" href="https://vk.com/ivanhoe_kn" target="_blank"><img th:src="@{images/telegram.png}"></a>
+                <a title="Instagram" href="https://vk.com/ivanhoe_kn" target="_blank"><img th:src="@{images/instagram.png}"></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

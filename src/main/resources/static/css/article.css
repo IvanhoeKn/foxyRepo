@@ -1,0 +1,65 @@
+/*содержимое сайта*/
+.container {
+    width: 70vw;
+    background-color: white;
+    margin: 10px auto;
+    box-shadow: 10px 5px 5px #6f7da9;
+    height: max-content;
+    padding-bottom: 30px;
+}
+.about_repo {
+    padding: 0 20px 10px 20px;
+    font-size: 22px;
+    text-align: justify;
+    min-height: max-content;
+    margin: 0 auto 20px auto;
+    border-bottom: 1px solid cadetblue;
+}
+.article-name, .about_repo {
+    width: 64vw;
+}
+.article-name {
+    font-size: 26px;
+    color: #2c385e;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.about_repo img {
+    width: 20vw;
+    height: 14vw;
+    float: right;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 8px;
+}
+.article-footer img {
+    width: 14px;
+    margin-left: 10px;
+}
+.like {
+    background-color: #466791;
+    color: white;
+    text-align: center;
+    padding: 5px 8px 8px 8px;
+    margin-left: 60px;
+}
+.like button {
+    background-color: #466791;
+    color: white;
+    border: none;
+    font-size: 14px;
+    font-family: Cambria, sans-serif;
+}
+.date {
+    float: right;
+    margin-right: 60px;
+    color: #4b4b4b;
+}
+.category {
+    color: #2790c9;
+    padding-top: 30px;
+    margin: 0;
+    font-size: smaller;
+}

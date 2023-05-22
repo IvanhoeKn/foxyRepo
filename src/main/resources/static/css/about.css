@@ -1,0 +1,18 @@
+/*содержимое сайта*/
+.container {
+    width: 70vw;
+    background-color: white;
+    margin: 10px auto;
+    box-shadow: 10px 5px 5px #6f7da9;
+}
+.about_repo {
+    padding: 35px;
+    font-size: 24px;
+    text-align: justify;
+}
+.three {
+    color: #2fa2da;
+    font-weight: bold;
+}
+
+
