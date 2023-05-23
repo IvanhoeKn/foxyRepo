@@ -1,0 +1,87 @@
+/*содержимое сайта*/
+.container {
+    width: 70vw;
+    background-color: white;
+    margin: 10px auto;
+    box-shadow: 10px 5px 5px #6f7da9;
+    padding: 24px 10px;
+}
+.article-form {
+    width: 64vw;
+    background-color: #dedede;
+    margin: 20px auto;
+    padding-top: 10px;
+    box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .2);
+}
+.art-form {
+    width: 36vw;
+    min-height: 300px;
+    margin: 10px auto;
+    font-family: Arial, sans-serif;
+}
+.art-form p {
+    margin: 6px auto;
+    height: 40px;
+}
+.art-form p .str1 .f-name{
+    margin-top: 30px;
+}
+.f-name {
+    color: #2c385e;
+    /*margin-left: 60px;*/
+    margin-top: 0.3rem;
+}
+.f-value {
+    width: 300px;
+    height: 30px;
+    float: right;
+    /*margin-right: 60px;*/
+    border: none;
+    padding: 0;
+}
+.publish {
+    width: 350px;
+    height: 50px;
+    margin-bottom: 30px;
+    background-color: #2c385e;
+    color: white;
+    font-size: 18px;
+    box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, .2);
+}
+input #file-upload-button {
+    background-color: white;
+    width: 150px;
+    height: 30px;
+}
+input.art-img::-webkit-file-upload-button {
+    background-color: white;
+    width: 150px;
+    height: 30px;
+    border: none;
+    outline: none;
+}
+.btn {
+    text-align: center;
+}
+.btn {
+    padding-bottom: 50px;
+}
+.editor {
+    width: 36vw;
+    height: max-content;
+    margin: 5px auto 25px auto;
+}
+#write textarea{
+    resize: none;
+    margin-bottom: 10px;
+}
+.txtar {
+    height: 60px;
+}
+.txtar textarea{
+    height: 50px;
+    resize: none;
+}
+.selectp {
+    margin-top: 10px;
+}

@@ -2,9 +2,10 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>About FoxyRepo</title>
+    <title>Написание статьи</title>
     <link rel="stylesheet" th:href="@{css/navigation_panel.css}">
-    <link rel="stylesheet" th:href="@{css/about.css}">
+    <link rel="stylesheet" th:href="@{css/writing_article.css}">
+    <script th:src="@{https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js}"></script>
 </head>
 <body>
 <div class="header">
@@ -27,7 +28,6 @@
                     </p>
                 </a>
             </div>
-
             <div class="menu">
                 <a th:href="@{all}"><div class="menu_elem first">ВСЕ СТАТЬИ</div></a>
                 <a th:href="@{popular}"><div class="menu_elem second">ПОПУЛЯРНОЕ</div></a>
@@ -50,8 +50,20 @@
     </nav>
 </div>
 <div class="container">
-    <div class="about_repo">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut enim esse illo in laboriosam nam numquam placeat temporibus. Deserunt esse et fugiat, iste mollitia neque provident soluta velit voluptate voluptatem.</p>
+    <div class="article-form">
+        <form class="art-form" th:action="@{/writing-article(user=${#authentication.principal.username})}" method="POST" enctype="multipart/form-data">
+            <p class="str str1"><span class="f-name">Title</span> <input type="text" class="art-into f-value" name="title" required></p>
+            <div class="str txtar"><span class="f-name">Summary</span> <textarea class="art-into f-value" name="summary" required></textarea></div>
+            <!-- <p class="str"><span class="f-name">Upload an image</span> <input type="file" class="art-img f-value" name="image" required></p>-->
+            <div class="editor"><textarea id="write" name="document"></textarea></div>
+            <p class="str selectp"><span class="f-name">Select a category</span>
+                <select class="f-value select" name="category" required>
+                    <option value=""></option>
+                    <option th:each="entry : ${selectCategory}" th:value="${entry.key}"> <span th:text="${entry.value}"></span></option>
+                </select>
+            </p>
+            <p class="str btn"><button type="submit" class="publish">Publish</button> </p>
+        </form>
     </div>
 </div>
 <div class="footer">
@@ -67,5 +79,10 @@
         </div>
     </div>
 </div>
+<script>
+    CKEDITOR.replace('write', {
+        extraPlugins: 'basicstyles, format'
+    });
+</script>
 </body>
 </html>

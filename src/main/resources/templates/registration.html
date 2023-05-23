@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" th:href="@{css/login.css}">
+</head>
+<body>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <a href="#close" title="Close" class="close">×</a>
+        </div>
+        <div class="modal-body">
+            <div class="form-container">
+                <p class="modal-title">Регистрация</p>
+                <form method="POST" class="form" th:object="${userForm}" th:action="@{/registration}">
+                    <p> <input class="intext login" type="text" placeholder="Login"  required th:field="*{login}">
+                        <span class="has-error" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></span>
+                    </p>
+                    <p> <input class="intext pass" type="password" placeholder="Password" required th:field="*{password}">
+                        <span class="has-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                    </p>
+                    <p><input class="intext email" type="text" placeholder="Email" required th:field="*{mail}"></p>
+                    <p><input class="intext about" type="text" placeholder="About yourself" size="512" th:field="*{about}"></p>
+                    <p class="into"><button type="submit">Create new account</button></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

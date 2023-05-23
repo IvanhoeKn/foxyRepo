@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Популярное</title>
     <link rel="stylesheet" th:href="@{css/navigation_panel.css}">
     <link rel="stylesheet" th:href="@{css/popular.css}">
-    <link rel="stylesheet" th:href="@{css/login.css}">
 </head>
 <body>
 <div class="header">
@@ -28,7 +27,6 @@
                     </p>
                 </a>
             </div>
-
             <div class="menu">
                 <a th:href="@{all}"><div class="menu_elem first">ВСЕ СТАТЬИ</div></a>
                 <a th:href="@{popular}"><div class="menu_elem second">ПОПУЛЯРНОЕ</div></a>
@@ -36,8 +34,13 @@
                 <div class="profile dropdown">
                     <div class="menu_elem"> <img class="menu_elem" th:src="@{images/icon-profile.png}">
                         <div class="dropdown-content">
-                            <a href="#openModal">Войти</a>
-                            <a href="#openModal-signup">Зарегистрироваться</a>
+                            <a sec:authorize="!isAuthenticated()" th:href="@{login}">Войти</a>
+                            <a sec:authorize="isAuthenticated()" th:href="@{cabinet}">Кабинет</a>
+                            <a sec:authorize="!isAuthenticated()" th:href="@{registration}">Зарегистрироваться</a>
+                            <form sec:authorize="isAuthenticated()" id="logoutForm" method="POST" th:action="@{/logout}">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <a onclick="document.forms['logoutForm'].submit()">Выход</a>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -48,87 +51,30 @@
 <div class="container">
     <!--    для статей-->
     <div class="posts-list">
-
         <!-- Для слайдшоу -->
-        <div class="slide-container">
-            <p class="category">Категория</p>
-            <div class="slide animate">
-                <a href="">
-                    <div class="post">
-                        <div class="post-image"><img src="images/test.jpg"></div>
-                        <div class="post-content">
-                            <p class="post-title">Весна 1</p>
-                            <p class="summary">Очень богат русский язык словами, относящимися к временам года и к природным явлениям, с ними связанным. lorem</p>
+        <div class="slide-container" th:each="category : ${categoryList}" th:if="${#maps.containsKey(articleFiltered, category.idCategory)}">
+                <p class="category">Категория <span th:text="${category.getNameCategory()}"></span></p>
+                <div class="slide animate" th:with="articleList=${articleFiltered.get(category.getIdCategory())}">
+                    <a th:each="article : ${articleList}" th:href="@{articles(id=${article.getIdArticle()})}">
+                        <div class="post">
+                            <div class="post-image"><img th:src="@{${article.getPicture()}}"></div>
+                            <div class="post-content">
+                                <p class="post-title" th:text="${article.getTitle()}"></p>
+                                <p class="summary" th:text="${article.getSummary()}"></p>
+                            </div>
+                            <div class="post-footer">
+                                <img th:src="@{images/icon-like.png}" th:text="${article.getLikeCounter()}">
+                                <span class="date">Дата: <span th:text="${#dates.format(article.getCreationDate(), 'dd-MMM-yyyy')}"></span> </span>
+                            </div>
                         </div>
-                        <div class="post-footer">
-                            <img src="images/icon-like.png">1234
-                            <span class="date">Дата </span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="slide animate">
-                <a href="">
-                    <div class="post">
-                        <div class="post-image"><img src="images/test.jpg"></div>
-                        <div class="post-content">
-                            <p class="post-title">Весна 2</p>
-                            <p class="summary">Очень богат русский язык словами, относящимися к временам года и к природным явлениям, с ними связанным. lorem</p>
-                        </div>
-                        <div class="post-footer">
-                            <img src="images/icon-like.png">1234
-                            <span class="date">Дата </span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="slide animate">
-                <a href="">
-                    <div class="post">
-                        <div class="post-image"><img src="images/test.jpg"></div>
-                        <div class="post-content">
-                            <p class="post-title">Весна 3</p>
-                            <p class="summary">Очень богат русский язык словами, относящимися к временам года и к природным явлениям, с ними связанным. lorem</p>
-                        </div>
-                        <div class="post-footer">
-                            <img src="images/icon-like.png">1234
-                            <span class="date">Дата </span>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <!-- Конец слайдшоу -->
-
     </div>
 </div>
-
-<!-- модальное окно для входа-->
-<div id="openModal" class="modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <a href="#close" title="Close" class="close">×</a>
-            </div>
-            <div class="modal-body">
-                <div class="form-container">
-                    <p class="modal-title">Авторизация</p>
-                    <form method="POST" class="form" action="">
-                        <p><input class="intext login" type="text" placeholder="Login"  required></p>
-                        <p><input class="intext pass" type="password" placeholder="Password" required></p>
-                        <p class="into"><button type="submit">Login</button></p>
-                        <p class="or">---------------  <span class="sp">or</span>  ---------------</p>
-                        <a href="#openModal-signup"><p class="but">Create new account</p></a>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="footer">
     <div class="footer_container">
         <div class="footer-col"><span>Энциклопедия © 2023</span></div>
@@ -142,7 +88,6 @@
         </div>
     </div>
 </div>
-
 <script>
     // для слайд-шоу
     let slideIndex = 1;

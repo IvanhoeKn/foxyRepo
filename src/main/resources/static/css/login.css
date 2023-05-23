@@ -159,12 +159,12 @@
     text-align: center;
 }
 .pass {
-    background: url(../images/password.png) no-repeat 6px 10px;
+    background: url(images/password.png) no-repeat 6px 10px;
     background-size: auto 50%;
     background-color: #e8e8e8;
 }
 .login {
-    background: url(../images/username.png) no-repeat 6px 10px;
+    background: url(images/username.png) no-repeat 6px 10px;
     background-size: auto 50%;
     background-color: #e8e8e8;
 }
@@ -182,17 +182,17 @@
     background-color: #e8e8e8;
 }
 .email {
-    background: url(../images/email.png) no-repeat 6px 10px;
+    background: url(images/email.png) no-repeat 6px 10px;
     background-size: auto 50%;
     background-color: #e8e8e8;
 }
 .tg {
-    background: url(../images/tg.png) no-repeat 6px 10px;
+    background: url(images/tg.png) no-repeat 6px 10px;
     background-size: auto 50%;
     background-color: #e8e8e8;
 }
 .about {
-    background: url(../images/about.png) no-repeat 6px 10px;
+    background: url(images/about.png) no-repeat 6px 10px;
     background-size: auto 50%;
     background-color: #e8e8e8;
 }

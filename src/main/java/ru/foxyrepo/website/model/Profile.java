@@ -17,7 +17,7 @@ public class Profile {
     @Column(name = "login", nullable = false, length = 32)
     private String login;
     @Basic
-    @Column(name = "password", nullable = false, length = 32)
+    @Column(name = "password", nullable = false, length = -1)
     private String password;
     @Basic
     @Column(name = "mail", nullable = true, length = 64)
@@ -26,7 +26,7 @@ public class Profile {
     @Column(name = "about", nullable = true, length = 512)
     private String about;
     @Basic
-    @Column(name = "registration", nullable = false)
+    @Column(name = "registration", nullable = true)
     private Timestamp registration;
 
     public Long getIdProfile() {

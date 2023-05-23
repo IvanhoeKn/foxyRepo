@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Все статьи</title>
     <link rel="stylesheet" th:href="@{css/navigation_panel.css}">
     <link rel="stylesheet" th:href="@{css/new.css}">
-    <link rel="stylesheet" th:href="@{css/login.css}">
 </head>
 <body>
 <div class="header">
@@ -28,7 +27,6 @@
                     </p>
                 </a>
             </div>
-
             <div class="menu">
                 <a th:href="@{all}"><div class="menu_elem first">ВСЕ СТАТЬИ</div></a>
                 <a th:href="@{popular}"><div class="menu_elem second">ПОПУЛЯРНОЕ</div></a>
@@ -36,8 +34,13 @@
                 <div class="profile dropdown">
                     <div class="menu_elem"> <img class="menu_elem" th:src="@{images/icon-profile.png}">
                         <div class="dropdown-content">
-                            <a href="#openModal">Войти</a>
-                            <a href="#openModal-signup">Зарегистрироваться</a>
+                            <a sec:authorize="!isAuthenticated()" th:href="@{login}">Войти</a>
+                            <a sec:authorize="isAuthenticated()" th:href="@{cabinet}">Кабинет</a>
+                            <a sec:authorize="!isAuthenticated()" th:href="@{registration}">Зарегистрироваться</a>
+                            <form sec:authorize="isAuthenticated()" id="logoutForm" method="POST" th:action="@{/logout}">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                <a onclick="document.forms['logoutForm'].submit()">Выход</a>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -72,28 +75,6 @@
             <ul class="widget-category-list" th:each="category : ${categories}">
                 <li><a th:href="@{all(filter=${category.getIdCategory()})}" th:text="${category.nameCategory}"></a></li>
             </ul>
-        </div>
-    </div>
-</div>
-<!-- модальное окно для входа-->
-<div id="openModal" class="modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <a href="#close" title="Close" class="close">×</a>
-            </div>
-            <div class="modal-body">
-                <div class="form-container">
-                    <p class="modal-title">Авторизация</p>
-                    <form method="POST" class="form" action="">
-                        <p><input class="intext login" type="text" placeholder="Login"  required></p>
-                        <p><input class="intext pass" type="password" placeholder="Password" required></p>
-                        <p class="into"><button type="submit">Login</button></p>
-                        <p class="or">---------------  <span class="sp">or</span>  ---------------</p>
-                        <a  href="#openModal-signup"><p class="but">Create new account</p></a>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 </div>

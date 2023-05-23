@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link rel="stylesheet" th:href="@{css/login.css}">
+</head>
+<body>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <a href="#close" title="Close" class="close">×</a>
+    </div>
+    <div class="modal-body">
+      <div class="form-container">
+        <p class="modal-title">Авторизация</p>
+        <form method="POST" class="form" th:action="@{/login}">
+          <p><input name="username" class="intext login" type="text" placeholder="Login" required></p>
+          <p><input name="password" class="intext pass" type="password" placeholder="Password" required></p>
+          <span class="has-error" th:text="${error}"></span>
+          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+          <p class="into"><button type="submit">Login</button></p>
+          <p class="or">---------------  <span class="sp">or</span>  ---------------</p>
+          <a th:href="@{registration}"><p class="but">Create new account</p></a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
