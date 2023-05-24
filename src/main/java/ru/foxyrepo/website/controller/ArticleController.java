@@ -2,7 +2,6 @@ package ru.foxyrepo.website.controller;
 
 import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.foxyrepo.website.dao.ArticleDao;

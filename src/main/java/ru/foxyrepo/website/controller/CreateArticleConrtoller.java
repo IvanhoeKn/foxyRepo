@@ -1,21 +1,16 @@
 package ru.foxyrepo.website.controller;
 
 import lombok.extern.log4j.Log4j;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import ru.foxyrepo.website.dao.ArticleDao;
 import ru.foxyrepo.website.dao.CategoryDao;
 import ru.foxyrepo.website.dao.ProfileDao;
 import ru.foxyrepo.website.model.Article;
 import ru.foxyrepo.website.model.Category;
-
-import java.io.File;
-import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.HashMap;

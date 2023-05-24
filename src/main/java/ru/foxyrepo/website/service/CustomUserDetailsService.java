@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import ru.foxyrepo.website.dao.ProfileDao;
 import ru.foxyrepo.website.dao.StatusDao;
 import ru.foxyrepo.website.model.Profile;
-import ru.foxyrepo.website.model.enums.Role;
 import java.util.HashSet;
 import java.util.Set;
 

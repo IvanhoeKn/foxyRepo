@@ -1,10 +1,8 @@
 package ru.foxyrepo.website.controller;
 
 import lombok.extern.log4j.Log4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.foxyrepo.website.dao.ArticleDao;
@@ -12,10 +10,6 @@ import ru.foxyrepo.website.dao.CategoryDao;
 import ru.foxyrepo.website.model.Article;
 import ru.foxyrepo.website.model.Category;
 import ru.foxyrepo.website.model.Profile;
-import ru.foxyrepo.website.service.SaveNewUser;
-import ru.foxyrepo.website.service.SecurityService;
-import ru.foxyrepo.website.util.UserValidator;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
