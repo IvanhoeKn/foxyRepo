@@ -76,7 +76,7 @@ public class MainController {
     }
 
     @GetMapping({"/about"})
-    public String about(Model model) {
+    public String about() {
         return "about";
     }
 }
